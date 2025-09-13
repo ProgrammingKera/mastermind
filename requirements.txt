@@ -1,0 +1,62 @@
+# Flask Web Framework and Extensions
+Flask>=2.3.0,<3.0.0
+Flask-MySQLdb>=1.0.0
+Flask-CORS>=4.0.0
+
+# Database
+PyMySQL>=1.0.0
+mysqlclient>=2.1.0
+
+# Password Hashing
+bcrypt>=4.0.0
+
+# PDF Generation
+fpdf2>=2.7.0
+
+# Payment Processing
+stripe>=7.0.0
+
+# Machine Learning and Data Science
+scikit-learn>=1.3.0
+numpy>=1.24.0,<2.0.0
+pandas>=2.0.0,<3.0.0
+statsmodels>=0.14.0
+
+# Graph Processing
+PyGSP>=0.3.0
+
+# Multi-Criteria Decision Making
+pyDecision>=2.0.0
+ahpy>=0.3.0
+
+# Email Services (built-in smtplib is sufficient)
+# secure-smtplib==0.1.1  # Not needed, using built-in smtplib
+
+# Date and Time Utilities
+python-dateutil>=2.8.0
+
+# Additional Utilities (built-in modules)
+# uuid - built-in module
+# calendar - built-in module
+
+# Development and Testing (Optional)
+pytest>=7.0.0
+pytest-flask>=1.0.0
+
+# Environment Variables (Optional)
+python-dotenv>=1.0.0
+
+# Image Processing (if needed for product images)
+Pillow>=10.0.0
+
+# HTTP Requests (if needed for external APIs)
+requests>=2.31.0
+
+# JSON Web Tokens (if needed for authentication)
+PyJWT>=2.8.0
+
+# Caching (if needed)
+Flask-Caching>=2.1.0
+
+# File Upload Handling
+Werkzeug>=2.3.0,<3.0.0

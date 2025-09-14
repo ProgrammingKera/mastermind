@@ -21,7 +21,6 @@ function setupEventListeners() {
 
     document.getElementById('addProductForm').addEventListener('submit', handleFormSubmit);
 }
-
 function fetchProducts() {
     fetch("/api/products")
         .then(response => {

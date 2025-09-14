@@ -23,7 +23,7 @@ function setupEventListeners() {
 }
 
 function fetchProducts() {
-    fetch("https://pharmamastermind.onrender.com/api/products")
+    fetch("/api/products")
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);

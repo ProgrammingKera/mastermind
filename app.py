@@ -907,7 +907,7 @@ def get_customer_ledger(customer_id):
 
 
 #inventory
-@app.route('/api/products', methods=['GET'])
+@app.route('https://pharmamastermind.onrender.com/api/products', methods=['GET'])
 def get_products():
     try:
         cur = mysql.connection.cursor()

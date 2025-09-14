@@ -35,7 +35,7 @@ app.config['MYSQL_USER'] = 'abe400_dogar'
 app.config['MYSQL_PASSWORD'] = 'Moiz123@'
 app.config['MYSQL_DB'] = 'db_abe400_dogar'
 app.config['MYSQL_HOST'] = 'MYSQL1003.site4now.net'
-app.config['MYSQL_PORT'] = 3306
+
 
 
 mysql = MySQL(app)

@@ -414,33 +414,21 @@ def signsin():
     email = data.get("email").strip()
     password = data.get("password").strip()
 
-    # ✅ Hardcoded user-role mapping
+    # 🔹 Hardcoded users ke liye direct redirect
     hardcoded_users = {
-        "iqraaa1280@gmail.com": {"password": "Password@1234", "role": "owner"},
-        "ayeshaaali3034@gmail.com": {"password": "Password@123", "role": "customer"},
-        "Iqraraza280@gmail.com": {"password": "Password@123", "role": "admin"},
-        "neelamraza123456@gmail.com": {"password": "Password@123", "role": "employee"},
+        "iqraaa1280@gmail.com": {"password": "Password@1234", "redirect": "/dashboard"},
+        "ayeshaaali3034@gmail.com": {"password": "Password@123", "redirect": "/customerdashboard"},
+        "Iqraraza280@gmail.com": {"password": "Password@123", "redirect": "/admininventory"},
+        "neelamraza123456@gmail.com": {"password": "Password@123", "redirect": "/pos"},
     }
 
     if email in hardcoded_users:
         if password == hardcoded_users[email]["password"]:
-            session.permanent = True
-            session['role'] = hardcoded_users[email]["role"]
-            session['user_id'] = email  # Hardcoded user ID
-
-            # 🔹 Redirect based on role
-            if session['role'] == "owner":
-                return jsonify({"success": True, "redirect": "/dashboard"})
-            elif session['role'] == "customer":
-                return jsonify({"success": True, "redirect": "/customerdashboard"})
-            elif session['role'] == "admin":
-                return jsonify({"success": True, "redirect": "/admininventory"})
-            elif session['role'] == "employee":
-                return jsonify({"success": True, "redirect": "/pos"})
+            return jsonify({"success": True, "redirect": hardcoded_users[email]["redirect"]})
         else:
             return jsonify({"success": False, "message": "Incorrect password!"})
 
-    # 🔹 Normal DB users
+    # 🔹 Normal DB users ke liye generic redirect
     try:
         cur = mysql.connection.cursor()
         cur.execute("SELECT * FROM users WHERE email = %s", (email,))
@@ -450,25 +438,15 @@ def signsin():
         if user:
             stored_password = user[5]
             if bcrypt.checkpw(password.encode('utf-8'), stored_password.encode('utf-8')):
-                session.permanent = True
-                session['role'] = user[6]
-                session['user_id'] = user[0]
-
-                # 🔹 Redirect based on DB role
-                if user[6] == "owner":
-                    return jsonify({"success": True, "redirect": "/dashboard"})
-                elif user[6] == "customer":
-                    return jsonify({"success": True, "redirect": "/customerdashboard"})
-                elif user[6] == "admin":
-                    return jsonify({"success": True, "redirect": "/admininventory"})
-                elif user[6] == "employee":
-                    return jsonify({"success": True, "redirect": "/pos"})
+                # DB user matched → direct dashboard
+                return jsonify({"success": True, "redirect": "/dashboard"})
             else:
                 return jsonify({"success": False, "message": "Incorrect password!"})
         else:
             return jsonify({"success": False, "message": "Email not found!"})
     except Exception as e:
         return jsonify({"success": False, "message": str(e)})
+
 
 
 

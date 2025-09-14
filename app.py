@@ -414,7 +414,7 @@ def signsin():
     email = data.get("email").strip()
     password = data.get("password").strip()
 
-    # 🔹 Hardcoded users ke liye direct redirect
+    
     hardcoded_users = {
         "iqraaa1280@gmail.com": {"password": "Password@1234", "redirect": "/dashboard"},
         "ayeshaaali3034@gmail.com": {"password": "Password@123", "redirect": "/customerdashboard"},

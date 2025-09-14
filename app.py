@@ -30,11 +30,13 @@ CORS(app, supports_credentials=True)
 # Stripe configuration
 stripe.api_key = 'sk_test_51RvFpAFnsPUQVISnTuNYVEFQlPbjSU8HBH3sxC5nFLLIBnnuJxs9cggYNENqUKD9PWdD4jPihDlkHeMTJD5l7PxF00Arox9DUH'  
 
-# ✅ flask_mysqldb with SmartASP.NET MySQL
-app.config['MYSQL_USER'] = 'abe400_dogar'
-app.config['MYSQL_PASSWORD'] = 'Moiz123@'
-app.config['MYSQL_DB'] = 'db_abe400_dogar'
-app.config['MYSQL_HOST'] = 'MYSQL1003.site4now.net'
+# ✅ Flask-MySQLdb Config for FreeSQLDatabase
+app.config['MYSQL_HOST'] = 'sql12.freesqldatabase.com'
+app.config['MYSQL_USER'] = 'sql12798597'
+app.config['MYSQL_PASSWORD'] = 'USHX2B3uds'
+app.config['MYSQL_DB'] = 'sql12798597'
+app.config['MYSQL_PORT'] = 3306
+
 
 
 
